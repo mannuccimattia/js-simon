@@ -3,15 +3,17 @@
 const simonNumbers = document.getElementById("numbers-list");
 const instructions = document.getElementById("instructions");
 const answers = document.getElementById("answers-form");
+const inputGroup = document.getElementById("input-group");
 
+const button = document.querySelector("button");
 
 // variabili
 const simon = [];
+const user = [];
 
 // CORPO DEL PROGRAMMA
 // chiamo la funzione genSimon per generare  5 numeri da 1 a 50
 genSimon();
-console.log(simon);
 
 // avvio un timer di 30 secondi.
 setTimeout(function(){
@@ -21,4 +23,11 @@ setTimeout(function(){
   // e mostro la form
   answers.classList.remove("d-none");
 
-}, 30000);
+}, 3000);
+
+// al click del bottone eseguo genUser
+button.addEventListener("click", function(event){
+  event.preventDefault();
+  genUser();
+  console.log(user)
+})

@@ -15,3 +15,12 @@ genSimon = () => {
   }
 }
 
+// FUNZIONE genUser
+genUser = () => {
+  // ciclo per inserire il valore di ogni figlio di inputGroup dentro l'array user[]
+  for(let i=0; i<5; i++){
+    let num = inputGroup.children[i].value;
+    user.push(num)
+  }
+}
+
