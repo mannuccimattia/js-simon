@@ -82,7 +82,7 @@ for (i = 0; i < 5; i++) {
 console.log(simon);
 
 // avvio un timer di 30 secondi.
-countToZero(3);
+countToZero(30);
 // allo scadere
 setTimeout(function () {
   // nascondo i numeri di simon
@@ -91,7 +91,7 @@ setTimeout(function () {
   instructions.innerText = "Inserisci i numeri mostrati (l'ordine non importa)."
   // mostro i campi della form
   answers.classList.remove("d-none");
-}, 3000);
+}, 30000);
 
 // al click del bottone 
 button.addEventListener("click", function (event) {
