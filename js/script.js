@@ -82,7 +82,7 @@ for (i = 0; i < 5; i++) {
 console.log(simon);
 
 // avvio un timer di 30 secondi.
-countToZero(30);
+countToZero(3);
 // allo scadere
 setTimeout(function () {
   // nascondo i numeri di simon
@@ -91,10 +91,10 @@ setTimeout(function () {
   instructions.innerText = "Inserisci i numeri mostrati (l'ordine non importa)."
   // mostro i campi della form
   answers.classList.remove("d-none");
-}, 30000);
+}, 3000);
 
 // al click del bottone 
-button.addEventListener("click", function (event) {
+button.addEventListener("submit", function (event) {
   event.preventDefault();
   // ciclo per inserire il valore di ogni figlio di inputGroup dentro l'array user[]
   for (let i = 0; i < 5; i++) {
