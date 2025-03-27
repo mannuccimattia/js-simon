@@ -5,6 +5,7 @@ const instructions = document.getElementById("instructions");
 const answers = document.getElementById("answers-form");
 const inputGroup = document.getElementById("input-group");
 const button = document.querySelector("button");
+const message = document.getElementById("message")
 
 // variabili
 const simon = [];
@@ -36,13 +37,29 @@ button.addEventListener("click", function(event){
   // chiamo la funzione clearFormField
   clearFormField();
 
-  // nascondo istruzioni e campi input
+  // nascondo istruzioni, campi input e button
   instructions.classList.add("d-none");
   inputGroup.classList.add("d-none");
-  // chiamo la funzione checkNumbers e assegno il suo risultato una variabile temporanea
-  let temp = checkNumbers();
-  button.innerText = `Hai indovinato ${temp[0]} numero/i. ${temp[1]}`;
-  // cambio button in un <p>
-  button.outerHTML = `<p class="text-center py-2 fs-1">${button.innerText}</p>`;
+  button.classList.add("d-none");
+  // chiamo la funzione checkNumbers e assegno il suo risultato una variabile
+  let result = checkNumbers();
+  let numbers = result.join(" - ");
+  console.log(result)
+  // stampo il risultato dentro message
+  if(result.length === 5){
+    message.classList.add("bg-success", "form-control");
+    message.classList.replace("text-danger", "text-dark");
+    message.innerText = `Hai indovinato tutti i numeri!\n${numbers}`;
+  }
+  else if(0 < result.length && result.length < 5){
+    message.classList.add("bg-warning", "form-control");
+    message.classList.replace("text-danger", "text-dark");
+    message.innerText = `Hai indovinato ${result.length} numeri!\n${numbers}`;
+  }
+  else if(result.length === 0){
+    message.classList.add("bg-danger", "form-control");
+    message.classList.replace("text-danger", "text-dark");
+    message.innerText = `Non hai indovinato nessun numero.`
+  }
 })
 
