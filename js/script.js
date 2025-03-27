@@ -4,16 +4,17 @@ const simonNumbers = document.getElementById("numbers-list");
 const instructions = document.getElementById("instructions");
 const answers = document.getElementById("answers-form");
 const inputGroup = document.getElementById("input-group");
-
 const button = document.querySelector("button");
 
 // variabili
 const simon = [];
 const user = [];
+let guessedNumbers = 0;
 
 // CORPO DEL PROGRAMMA
 // chiamo la funzione genSimon per generare  5 numeri da 1 a 50
 genSimon();
+console.log(simon)
 
 // avvio un timer di 30 secondi.
 setTimeout(function(){
@@ -25,9 +26,18 @@ setTimeout(function(){
 
 }, 3000);
 
-// al click del bottone eseguo genUser
+// al click del bottone 
 button.addEventListener("click", function(event){
   event.preventDefault();
+  // eseguo la funzione genUser
   genUser();
   console.log(user)
+  
+  // chiamo la funzione checkNumbers e assegno il risultato a guessedNumbers
+  guessedNumbers += checkNumbers();
+  console.log(guessedNumbers);
+
+  //chiamo la funzione clearFormField
+  clearFormField();
 })
+
