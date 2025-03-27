@@ -25,19 +25,28 @@ genUser = () => {
 }
 
 // FUNZIONE checkNumbers
-// controllo se i numeri di user[] sono uguali ai numeri di simon[]
+// controllo se i numeri di user[] sono uguali ai numeri di simon[], se lo sono aggiunge quali e quanti numeri in un array
 checkNumbers = () => {
   let match = false;
   let guessed = 0;
-  for(let i=0; i<user.length; i++){
-    for( let j=0; j<simon.length; j++){
-      if(simon[j] === user[i]){
+  let numbers = "";
+  
+  for(let i=0; i<simon.length; i++){
+    for(let j=0; j<user.length; j++){
+      if(user[j] === simon[i]){
         guessed += 1;
+        if(j < simon.length - 1){
+          numbers += simon[j] + " - ";
+        }
+        else{
+          numbers += simon[j];
+        }
       }
     }
   }
-
-  return guessed;
+  let result = [guessed, numbers];
+  
+  return result
 }
 
 // FUNZIONE clearFormField

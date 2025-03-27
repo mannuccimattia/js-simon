@@ -32,18 +32,17 @@ button.addEventListener("click", function(event){
   // eseguo la funzione genUser
   genUser();
   console.log(user)
-  
-  // chiamo la funzione checkNumbers e assegno il risultato a guessedNumbers
-  guessedNumbers += checkNumbers();
-  console.log(guessedNumbers);
 
   // chiamo la funzione clearFormField
   clearFormField();
 
-  // sostituisco il bottone conferma con un messaggio contentente il numero di parole ricordate
-  instructions.classLista.add("d-none");
+  // nascondo istruzioni e campi input
+  instructions.classList.add("d-none");
   inputGroup.classList.add("d-none");
-  button.innerText = `Hai ricordato ${guessedNumbers} numeri!`;
+  // chiamo la funzione checkNumbers e assegno il suo risultato una variabile temporanea
+  let temp = checkNumbers();
+  button.innerText = `Hai indovinato ${temp[0]} numero/i. ${temp[1]}`;
+  // cambio button in un <p>
   button.outerHTML = `<p class="text-center py-2 fs-1">${button.innerText}</p>`;
 })
 
