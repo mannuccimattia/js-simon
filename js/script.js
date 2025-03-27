@@ -37,7 +37,13 @@ button.addEventListener("click", function(event){
   guessedNumbers += checkNumbers();
   console.log(guessedNumbers);
 
-  //chiamo la funzione clearFormField
+  // chiamo la funzione clearFormField
   clearFormField();
+
+  // sostituisco il bottone conferma con un messaggio contentente il numero di parole ricordate
+  instructions.classLista.add("d-none");
+  inputGroup.classList.add("d-none");
+  button.innerText = `Hai ricordato ${guessedNumbers} numeri!`;
+  button.outerHTML = `<p class="text-center py-2 fs-1">${button.innerText}</p>`;
 })
 
